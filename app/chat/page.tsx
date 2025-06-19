@@ -1,16 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import type { UserProfile } from '../signUp/page';
 
 export default function Chat() {
   const [userInput, setUserInput] = useState('');
   const [response, setResponse] = useState('');
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const profileData = localStorage.getItem('userProfile');
-    if (profileData) setProfile(JSON.parse(profileData));
+    if (profileData) setProfile(JSON.parse(profileData) as UserProfile);;
   }, []);
 
   const handleChat = async () => {

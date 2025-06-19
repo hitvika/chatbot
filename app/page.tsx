@@ -10,8 +10,8 @@ export default function Home() {
     if (existingUser) {
       router.push('/login');
     } else {
-      router.push('/signup');
+      router.push('/signUp');
     }
-  }, []);
+  }, [router]);
   return null;
 }
